@@ -78,19 +78,6 @@ const arrayOfObjects = [
 //   }
 // ]
 
-arrayOfObjects.forEach((item, index) => {
-  console.log(item.name)
-})
-
-const optionsDropdown = arrayOfObjects.map((item) => {
-  return {
-    value: item.id,
-    label: `${item.name} ${item.age} tuoi`
-  }
-})
-
-console.log(optionsDropdown);
-
 const listNumber = [
   {
     "number1": 22,
@@ -138,6 +125,20 @@ const listNumber = [
   }
 ]
 
+// @ts-ignore
+const maxAll = listNumber.reduce((total: number, item: any) => {
+  const keys = Object.keys(item);
+  const sum = keys.reduce((t, i) => {
+    if (typeof item[i] === 'number') {
+      return t + item[i]
+    } else {
+      return t
+    }
+  }, 0)
+  return total + sum
+}, 0)
+
+console.log(maxAll);
 // const filterNumber = listNumber.map(item => {
 //   const sum = (item.number1 || 0) + (item.number2 || 0) + (item.number3 || 0) + (item.number4 || 0);
 //   const max = Math.max(item.number1 || 0, item.number2 || 0, item.number3 || 0, item.number4 || 0)
@@ -148,27 +149,27 @@ const listNumber = [
 //   }
 // })
 
-const filterNumber = listNumber.map((item: any) => {
-  const keys = Object.keys(item);
-  let max = 0;
-  keys.forEach(key => {
-    if (typeof item[key] === 'number' && item[key] > max) {
-      max = item[key]
-    }
-  })
-
-  const sum = keys.reduce((total, i) => {
-    if (typeof item[i] === 'number') {
-      return total + item[i];
-    } else {
-      return total;
-    }
-  }, 0);
-
-  return {
-    max,
-    sum,
-    id: item.id
-  }
-})
+// const filterNumber = listNumber.map((item: any) => {
+//   const keys = Object.keys(item);
+//   let max = 0;
+//   keys.forEach(key => {
+//     if (typeof item[key] === 'number' && item[key] > max) {
+//       max = item[key]
+//     }
+//   })
+//
+//   const sum = keys.reduce((total, i) => {
+//     if (typeof item[i] === 'number') {
+//       return total + item[i];
+//     } else {
+//       return total;
+//     }
+//   }, 0);
+//
+//   return {
+//     max,
+//     sum,
+//     id: item.id
+//   }
+// })
 

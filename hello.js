@@ -73,16 +73,6 @@ var arrayOfObjects = [
 //     label: 'huy 20 tuoi'
 //   }
 // ]
-arrayOfObjects.forEach(function (item, index) {
-    console.log(item.name);
-});
-var optionsDropdown = arrayOfObjects.map(function (item) {
-    return {
-        value: item.id,
-        label: "".concat(item.name, " ").concat(item.age, " tuoi")
-    };
-});
-console.log(optionsDropdown);
 var listNumber = [
     {
         "number1": 22,
@@ -129,6 +119,20 @@ var listNumber = [
         "id": "7"
     }
 ];
+// @ts-ignore
+var maxAll = listNumber.reduce(function (total, item) {
+    var keys = Object.keys(item);
+    var sum = keys.reduce(function (t, i) {
+        if (typeof item[i] === 'number') {
+            return t + item[i];
+        }
+        else {
+            return t;
+        }
+    }, 0);
+    return total + sum;
+}, 0);
+console.log(maxAll);
 // const filterNumber = listNumber.map(item => {
 //   const sum = (item.number1 || 0) + (item.number2 || 0) + (item.number3 || 0) + (item.number4 || 0);
 //   const max = Math.max(item.number1 || 0, item.number2 || 0, item.number3 || 0, item.number4 || 0)
@@ -138,25 +142,26 @@ var listNumber = [
 //     id: item.id
 //   }
 // })
-var filterNumber = listNumber.map(function (item) {
-    var keys = Object.keys(item);
-    var max = 0;
-    keys.forEach(function (key) {
-        if (typeof item[key] === 'number' && item[key] > max) {
-            max = item[key];
-        }
-    });
-    var sum = keys.reduce(function (total, i) {
-        if (typeof item[i] === 'number') {
-            return total + item[i];
-        }
-        else {
-            return total;
-        }
-    }, 0);
-    return {
-        max: max,
-        sum: sum,
-        id: item.id
-    };
-});
+// const filterNumber = listNumber.map((item: any) => {
+//   const keys = Object.keys(item);
+//   let max = 0;
+//   keys.forEach(key => {
+//     if (typeof item[key] === 'number' && item[key] > max) {
+//       max = item[key]
+//     }
+//   })
+//
+//   const sum = keys.reduce((total, i) => {
+//     if (typeof item[i] === 'number') {
+//       return total + item[i];
+//     } else {
+//       return total;
+//     }
+//   }, 0);
+//
+//   return {
+//     max,
+//     sum,
+//     id: item.id
+//   }
+// })
