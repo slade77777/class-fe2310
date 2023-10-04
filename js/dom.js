@@ -10,6 +10,8 @@ function getValue() {
 
     var result = inputElement.value
     resultElement.append(result)
+    resultElement.style.color = 'red'
+    resultElement.className = ''
 }
 
 function reset() {
@@ -19,4 +21,9 @@ function reset() {
     inputElement.value = ''
     resultElement.innerHTML = 'Your name is:'
     inputElement.focus();
+}
+
+function redirect() {
+    var inputElement = document.getElementsByClassName('input-name')[0]
+    window.location.href = inputElement.value
 }
