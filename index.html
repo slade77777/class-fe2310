@@ -12,44 +12,6 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="header" onclick="alert('clicked on text')">Our Services</h2>
-        <div>
-            <div class="item-one-line">
-                <div class="item">
-                    <img class="image" src="https://vti.com.vn/wp-content/uploads/2021/06/Group-264.png"/>
-                    <h2 class="title">Application Development</h2>
-                    <p class="content">Leveraging software applications to drive business growth, we provide a full process from planning to design implementation, development and operation.</p>
-                </div>
-                <div class="item">
-                    <img class="image" src="https://vti.com.vn/wp-content/uploads/2021/06/Group-264.png"/>
-                    <h2 class="title">Application Development</h2>
-                    <p class="content">Leveraging software applications to drive business growth, we provide a full process from planning to design implementation, development and operation.</p>
-                </div>
-                <div class="item">
-                    <img class="image" src="https://vti.com.vn/wp-content/uploads/2021/06/Group-264.png"/>
-                    <h2 class="title">Application Development</h2>
-                    <p class="content">Leveraging software applications to drive business growth, we provide a full process from planning to design implementation, development and operation.</p>
-                </div>
-            </div>
-            <div class="item-one-line">
-                <div class="item">
-                    <img class="image" src="https://vti.com.vn/wp-content/uploads/2021/06/Group-264.png"/>
-                    <h2 class="title">Application Development</h2>
-                    <p class="content">Leveraging software applications to drive business growth, we provide a full process from planning to design implementation, development and operation.</p>
-                </div>
-                <div class="item">
-                    <img class="image" src="https://vti.com.vn/wp-content/uploads/2021/06/Group-264.png"/>
-                    <h2 class="title">Application Development</h2>
-                    <p class="content">Leveraging software applications to drive business growth, we provide a full process from planning to design implementation, development and operation.</p>
-                </div>
-                <div class="item">
-                    <img class="image" src="https://vti.com.vn/wp-content/uploads/2021/06/Group-264.png"/>
-                    <h2 class="title">Application Development</h2>
-                    <p class="content">Leveraging software applications to drive business growth, we provide a full process from planning to design implementation, development and operation.</p>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="part-2">
         <label>Input Name: </label><input type="text" class="input-name" />
         <button onclick="setDefaultValue()">set default value</button>
@@ -57,6 +19,20 @@
         <p class="name-result" >Your name is: </p>
         <button onclick="reset()">Reset</button>
         <button onclick="redirect()">Redirect</button>
+    </div>
+    <div>
+        <button onclick="addLine()">add line</button>
+        <table id="my-table">
+            <tr>
+                <th>id</th>
+                <th>value</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>value 1</td>
+            </tr>
+        </table>
+    </div>
     </div>
 </body>
 </html>

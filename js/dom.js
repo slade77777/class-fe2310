@@ -27,3 +27,17 @@ function redirect() {
     var inputElement = document.getElementsByClassName('input-name')[0]
     window.location.href = inputElement.value
 }
+
+function addLine() {
+    var inputElement = document.getElementById('my-table')
+    var tr = document.createElement("tr");
+    var td = document.createElement("td");
+    var td2 = document.createElement("td");
+    var text = document.createTextNode("1");
+    var text2 = document.createTextNode("value 1");
+    td.appendChild(text)
+    td2.appendChild(text2)
+    tr.appendChild(td)
+    tr.appendChild(td2)
+    inputElement.appendChild(tr)
+}

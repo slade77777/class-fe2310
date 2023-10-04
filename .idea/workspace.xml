@@ -84,7 +84,7 @@
       <workItem from="1695816393957" duration="3313000" />
       <workItem from="1695989307242" duration="9125000" />
       <workItem from="1696244044247" duration="7937000" />
-      <workItem from="1696421189390" duration="3132000" />
+      <workItem from="1696421189390" duration="6148000" />
     </task>
     <task id="LOCAL-00001" summary="js advanced">
       <created>1691850690297</created>
@@ -114,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696423930445</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="js advanced">
+      <created>1696424373415</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1696424373415</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,5 +158,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="js advanced" />
     <option name="LAST_COMMIT_MESSAGE" value="js advanced" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/dom.js</url>
+          <line>18</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
