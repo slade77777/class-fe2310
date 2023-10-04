@@ -8,6 +8,7 @@
         /*ccs*/
     </style>
     <script language="javaScript" src="js/index.js"></script>
+    <script language="javaScript" src="js/dom.js"></script>
 </head>
 <body>
     <div class="container">
@@ -48,6 +49,13 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="part-2">
+        <label>Input Name: </label><input type="text" class="input-name" />
+        <button onclick="setDefaultValue()">set default value</button>
+        <button onclick="getValue()">get value of input</button>
+        <p class="name-result">Your name is: </p>
+        <button onclick="reset()">Reset</button>
     </div>
 </body>
 </html>
