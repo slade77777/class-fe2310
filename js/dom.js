@@ -30,14 +30,22 @@ function redirect() {
 
 function addLine() {
     var inputElement = document.getElementById('my-table')
+    var inputName = document.getElementById("input-name")
+    var inputAge = document.getElementById("input-age")
     var tr = document.createElement("tr");
     var td = document.createElement("td");
     var td2 = document.createElement("td");
-    var text = document.createTextNode("1");
-    var text2 = document.createTextNode("value 1");
+    if (!inputName.value || !inputAge.value) {
+        alert('Please fill all inputs');
+        return;
+    }
+    var text = document.createTextNode(inputName.value);
+    var text2 = document.createTextNode(inputAge.value);
     td.appendChild(text)
     td2.appendChild(text2)
     tr.appendChild(td)
     tr.appendChild(td2)
     inputElement.appendChild(tr)
+    inputName.value = ''
+    inputAge.value = ''
 }
