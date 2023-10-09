@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c25c0ed-9795-4a8b-918d-20135d5ca1c4" name="Changes" comment="js dom">
-      <change afterPath="$PROJECT_DIR$/js/jquery-event.js" afterDir="false" />
+    <list default="true" id="7c25c0ed-9795-4a8b-918d-20135d5ca1c4" name="Changes" comment="js jquery">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/jquery-event.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/jquery-event.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +86,8 @@
       <workItem from="1695989307242" duration="9125000" />
       <workItem from="1696244044247" duration="7937000" />
       <workItem from="1696421189390" duration="7591000" />
-      <workItem from="1696593912556" duration="3384000" />
+      <workItem from="1696593912556" duration="5497000" />
+      <workItem from="1696853296862" duration="3353000" />
     </task>
     <task id="LOCAL-00001" summary="js advanced">
       <created>1691850690297</created>
@@ -136,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696594722359</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="js jquery">
+      <created>1696597346696</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1696597346696</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +182,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="js advanced" />
     <MESSAGE value="js dom" />
-    <option name="LAST_COMMIT_MESSAGE" value="js dom" />
+    <MESSAGE value="js jquery" />
+    <option name="LAST_COMMIT_MESSAGE" value="js jquery" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

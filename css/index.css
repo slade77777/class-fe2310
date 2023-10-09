@@ -31,7 +31,41 @@
     height: 60px;
 }
 
+#list-product {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 
+.item-product , #item-product-modal {
+    width: 20%;
+    margin: 20px;
+}
+
+.image-product {
+    width: 100%;
+    height: auto;
+}
+
+#modal-item {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    display: none;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 
 @media screen and (max-width: 850px) {
 
