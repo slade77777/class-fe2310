@@ -87,7 +87,8 @@
       <workItem from="1696244044247" duration="7937000" />
       <workItem from="1696421189390" duration="7591000" />
       <workItem from="1696593912556" duration="5497000" />
-      <workItem from="1696853296862" duration="3353000" />
+      <workItem from="1696853296862" duration="6336000" />
+      <workItem from="1697026045244" duration="3685000" />
     </task>
     <task id="LOCAL-00001" summary="js advanced">
       <created>1691850690297</created>
@@ -145,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696597346696</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="js jquery">
+      <created>1696856718462</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1696856718462</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

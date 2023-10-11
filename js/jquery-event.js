@@ -103,38 +103,46 @@ $(function () {
         $("#item-product-modal").remove()
     }
 
-    $(".set-default-value").click(function () {
-        $(".input-name")[0].value = 'default name'
+    $("#add-new-button").click(function () {
+        $("#modal-add").show();
     })
 
-    $(".get-input-value").click(function () {
-        var name = $(".input-name")[0].value
-        $(".name-result")[0].append(name)
+    $("#close-button-add").click(function () {
+        $("#modal-add").hide();
     })
 
-    $("#reset-button").click(function () {
-        $(".input-name")[0].value = ''
-    })
+    $("#submit-add").click(function () {
+        // get inputs value
+        var thumbnail = $("#input-thumbnail").val();
+        var name = $("#input-name").val();
+        var manufacturer = $("#input-manufacturer").val();
+        var price = $("#input-price").val();
 
-    $("#add-line-button").click(function () {
-        if (!$("#input-name").val() || !$("#input-age").val()) {
-            alert('Please fill all inputs');
-            return;
-        }
-        var tr = document.createElement("tr");
-        tr.innerHTML = `<td>${$("#input-name").val()}</td><td>${$("#input-age").val()}</td>`
-        $("#my-table").append(tr)
-        $("#input-name").val('')
-        $("#input-age").val('')
-    })
+        // append new product into UI
+        var item = document.createElement("div")
+        item.className = `item-product product-${data.length + 1} `
+        item.innerHTML = `<img src="${thumbnail}" class="image-product"></img>
+                          <h3>${name}</h3>
+                          <p>Manufacturer: ${manufacturer}</p>
+                          <p>Price: ${price}USD</p>
+                          <button class="shopping-button" onclick="buyItem(${data.length + 1})">Shopping</button>
+`
+        $("#list-product").append(item)
 
-    $(".shopping-button").click(function () {
-        console.log('shopping button clicked')
+        // add new item into list product array
+        data.push({
+            "createdAt": new Date(),
+            "name": name,
+            "avatar": thumbnail,
+            "manufaturer": manufacturer,
+            "price": price,
+            "id": data.length + 1
+        })
     })
 
     data.forEach((product, index) => {
         var item = document.createElement("div")
-        item.className = 'item-product'
+        item.className = `item-product product-${product.id} `
         item.innerHTML = `<img src="${product.avatar}" class="image-product"></img>
                           <h3>${product.name}</h3>
                           <p>Manufacturer: ${product.manufaturer}</p>

@@ -16,25 +16,17 @@
         <div id="modal-item">
             <button id="close-button" onclick="hide()">close</button>
         </div>
-        <div class="part-2">
-            <label>Input Name: </label><input type="text" class="input-name" />
-            <button class="set-default-value">set default value</button>
-            <button class="get-input-value" >get value of input</button>
-            <p class="name-result" >Your name is: </p>
-            <button id="reset-button">Reset</button>
-            <button onclick="redirect()">Redirect</button>
+        <div id="modal-add">
+            <button id="close-button-add" >close</button>
+            <div class="modal-content">
+                <label>Thumbnail:</label><input type="text" id="input-thumbnail" />
+                <label>Name:</label><input type="text" id="input-name" />
+                <label>Manufacturer:</label><input type="text" id="input-manufacturer" />
+                <label>Price:</label><input type="number" id="input-price" />
+                <button id="submit-add">Submit</button>
+            </div>
         </div>
-        <div>
-            <label>Name:</label><input type="text" id="input-name">
-            <label>Age:</label><input type="number" id="input-age">
-            <button id="add-line-button">add line</button>
-            <table id="my-table">
-                <tr>
-                    <th>Name</th>
-                    <th>Age</th>
-                </tr>
-            </table>
-        </div>
+        <button id="add-new-button">ADD NEW</button>
         <div id="list-product">
 
         </div>
