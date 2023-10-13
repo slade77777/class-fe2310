@@ -2,12 +2,28 @@ var data = [];
 var buyItem;
 var hide;
 var confirm;
+var deleteItem;
+var getData;
 
 $(function () {
     confirm = function () {
         $("#modal-item").hide();
         $("#item-product-modal").remove()
         alert('Order has been set!')
+    }
+
+    deleteItem = function (id) {
+        $.ajax({
+            url: `https://645644b92e41ccf16918360b.mockapi.io/product/${id}`,
+            type: 'DELETE',
+            success: function (response) {
+                $("#list-product").empty();
+                getData();
+            },
+            error: function (err) {
+                alert('delete fail!')
+            }
+        })
     }
 
     buyItem = function (id) {
@@ -57,31 +73,35 @@ $(function () {
 
         // add new item into list product array
         $.post('https://645644b92e41ccf16918360b.mockapi.io/product', {
-            "name": name,
-            "avatar": thumbnail,
-            "manufaturer": manufacturer,
-            "price": price,
-        }, function (response, status) {
-            console.log(response);
-            console.log(status)
-        }
-    )})
+                "name": name,
+                "avatar": thumbnail,
+                "manufaturer": manufacturer,
+                "price": price,
+            }, function (response, status) {
+                console.log(response);
+                console.log(status)
+            }
+        )
+    })
 
-    $.get('https://645644b92e41ccf16918360b.mockapi.io/product', function (response, status) {
-        if (status === 'success') {
-            data = response
-            data.forEach((product, index) => {
-                var item = document.createElement("div")
-                item.className = `item-product product-${product.id} `
-                item.innerHTML = `<img src="${product.avatar}" class="image-product"></img>
+    getData = function () {
+        $.get('https://645644b92e41ccf16918360b.mockapi.io/product', function (response, status) {
+            if (status === 'success') {
+                data = response
+                data.forEach((product, index) => {
+                    var item = document.createElement("div")
+                    item.className = `item-product product-${product.id} `
+                    item.innerHTML = `<img src="${product.avatar}" class="image-product"></img>
                           <h3>${product.name}</h3>
                           <p>Manufacturer: ${product.manufaturer}</p>
                           <p>Price: ${product.price}USD</p>
                           <button class="shopping-button" onclick="buyItem(${product.id})">Shopping</button>
+                          <button class="delete-button" onclick="deleteItem(${product.id})">Delete</button>
 `
-                $("#list-product").append(item)
-            })
-        }
-    })
-
+                    $("#list-product").append(item)
+                })
+            }
+        })
+    }
+    getData();
 })
