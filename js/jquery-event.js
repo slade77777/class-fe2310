@@ -4,6 +4,8 @@ var hide;
 var confirm;
 var deleteItem;
 var getData;
+var editItem;
+var edittingId;
 
 $(function () {
     confirm = function () {
@@ -24,6 +26,17 @@ $(function () {
                 alert('delete fail!')
             }
         })
+    }
+
+    editItem = function (id) {
+        console.log(id);
+        $("#modal-add").show();
+        const choosingItem = data.find(item => item.id == id);
+        $("#input-thumbnail").val(choosingItem.avatar)
+        $("#input-name").val(choosingItem.name)
+        $("#input-manufacturer").val(choosingItem.manufaturer)
+        $("#input-price").val(choosingItem.price)
+        edittingId = id
     }
 
     buyItem = function (id) {
@@ -53,35 +66,55 @@ $(function () {
         $("#modal-add").hide();
     })
 
-    $("#submit-add").click(function () {
+    function resetForm() {
+        $("#input-thumbnail").val('')
+        $("#input-name").val('')
+        $("#input-manufacturer").val('')
+        $("#input-price").val('')
+    }
+
+    $("#submit").click(function () {
         // get inputs value
         var thumbnail = $("#input-thumbnail").val();
         var name = $("#input-name").val();
         var manufacturer = $("#input-manufacturer").val();
         var price = $("#input-price").val();
+        const submitData = {
+            "name": name,
+            "avatar": thumbnail,
+            "manufaturer": manufacturer,
+            "price": price,
+        };
 
-        // append new product into UI
-        var item = document.createElement("div")
-        item.className = `item-product product-${data.length + 1} `
-        item.innerHTML = `<img src="${thumbnail}" class="image-product"></img>
-                          <h3>${name}</h3>
-                          <p>Manufacturer: ${manufacturer}</p>
-                          <p>Price: ${price}USD</p>
-                          <button class="shopping-button" onclick="buyItem(${data.length + 1})">Shopping</button>
-`
-        $("#list-product").append(item)
+        if (edittingId) {
+            // add new item into list product array
+            $.ajax({
+                url: `https://645644b92e41ccf16918360b.mockapi.io/product/${edittingId}`,
+                type: 'PUT',
+                data: submitData,
+                success: function (response) {
+                    $("#list-product").empty();
+                    $("#modal-add").hide();
+                    getData();
+                    resetForm();
+                },
+                error: function (err) {
+                    alert('delete fail!')
+                }
+            })
+        } else {
+            $.post('https://645644b92e41ccf16918360b.mockapi.io/product', submitData , function (response, status) {
+                    if (status === 'success') {
+                        $("#list-product").empty();
+                        $("#modal-add").hide();
+                        getData();
+                        resetForm();
+                    }
+                }
+            )
 
-        // add new item into list product array
-        $.post('https://645644b92e41ccf16918360b.mockapi.io/product', {
-                "name": name,
-                "avatar": thumbnail,
-                "manufaturer": manufacturer,
-                "price": price,
-            }, function (response, status) {
-                console.log(response);
-                console.log(status)
-            }
-        )
+        }
+
     })
 
     getData = function () {
@@ -97,6 +130,7 @@ $(function () {
                           <p>Price: ${product.price}USD</p>
                           <button class="shopping-button" onclick="buyItem(${product.id})">Shopping</button>
                           <button class="delete-button" onclick="deleteItem(${product.id})">Delete</button>
+                          <button class="edit-button" onclick="editItem(${product.id})">Edit</button>
 `
                     $("#list-product").append(item)
                 })

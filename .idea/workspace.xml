@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7c25c0ed-9795-4a8b-918d-20135d5ca1c4" name="Changes" comment="js ajax">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/jquery-event.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/jquery-event.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +88,7 @@
       <workItem from="1696593912556" duration="5497000" />
       <workItem from="1696853296862" duration="6336000" />
       <workItem from="1697026045244" duration="8137000" />
-      <workItem from="1697198484491" duration="1883000" />
+      <workItem from="1697198484491" duration="4229000" />
     </task>
     <task id="LOCAL-00001" summary="js advanced">
       <created>1691850690297</created>
@@ -166,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697032732122</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="js ajax">
+      <created>1697200486417</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1697200486417</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
