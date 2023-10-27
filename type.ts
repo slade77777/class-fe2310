@@ -1,13 +1,12 @@
-type UserType = {
+export interface ProductInterface {
+  createdAt: string,
   name: string,
-  gender: string,
-  age: number
+  amount: number,
+  price: number,
+  expireTime: number,
+  id: string
 }
 
-interface UserInterface {
-  name: string,
-  gender: string,
-  age: number
-}
+type UserType = string
 
-export type { UserType }
+export const a = 'test value'
