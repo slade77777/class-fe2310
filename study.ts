@@ -147,32 +147,40 @@ let listProduct: Array<ProductInterface> =  [
   }
 ]
 
-// function buyProduct(id: string, number: number): ProductInterface[]  {
-//   const buyingProduct = listProduct.find(item => item.id === id);
-//   if (buyingProduct) {
-//     const amountLeft = buyingProduct.amount - number;
-//     buyingProduct.amount = amountLeft;
-//   } else {
-//     console.log('Product not found')
-//   }
-//   return listProduct;
-// }
-//
-// // add product => new product list
-//
-// function addProduct(newProduct: ProductInterface) {
-//   listProduct.push(newProduct);
-//   console.log(listProduct)
-// }
-//
-// addProduct({
-//   "createdAt": "2023-10-25T02:51:25.801Z",
-//   "name": "test new data",
-//   "amount": 90,
-//   "price": 123,
-//   "expireTime": 1698239843,
-//   "id": "40"
-// })
+function buyProduct(id: string, number: number): ProductInterface[]  {
+  const buyingProduct = listProduct.find(item => item.id === id);
+  if (buyingProduct) {
+    const amountLeft = buyingProduct.amount - number;
+    buyingProduct.amount = amountLeft;
+  } else {
+    console.log('Product not found')
+  }
+  return listProduct;
+}
+
+// add product => new product list
+
+function addProduct(newProduct: ProductInterface) {
+  return new Promise((resolve, reject) => {
+    listProduct.push(newProduct);
+    setTimeout(() => {
+      resolve('add product success')
+    }, 5000)
+  })
+}
+
+addProduct({
+  "createdAt": "2023-10-25T02:51:25.801Z",
+  "name": "test new data",
+  "amount": 90,
+  "price": 123,
+  "expireTime": 1698239843,
+  "id": "40"
+}).then(() => {
+  console.log(listProduct)
+}).catch((e) => {
+  console.log(e)
+})
 
 // remove product => new product list
 
