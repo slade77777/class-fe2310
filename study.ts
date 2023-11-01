@@ -147,60 +147,176 @@ let listProduct: Array<ProductInterface> =  [
   }
 ]
 
-function buyProduct(id: string, number: number): ProductInterface[]  {
-  const buyingProduct = listProduct.find(item => item.id === id);
-  if (buyingProduct) {
-    const amountLeft = buyingProduct.amount - number;
-    buyingProduct.amount = amountLeft;
-  } else {
-    console.log('Product not found')
-  }
-  return listProduct;
-}
-
-// add product => new product list
-
-function addProduct(newProduct: ProductInterface) {
-  listProduct.push(newProduct);
-  console.log(listProduct)
-}
-
-addProduct({
-  "createdAt": "2023-10-25T02:51:25.801Z",
-  "name": "test new data",
-  "amount": 90,
-  "price": 123,
-  "expireTime": 1698239843,
-  "id": "40"
-})
+// function buyProduct(id: string, number: number): ProductInterface[]  {
+//   const buyingProduct = listProduct.find(item => item.id === id);
+//   if (buyingProduct) {
+//     const amountLeft = buyingProduct.amount - number;
+//     buyingProduct.amount = amountLeft;
+//   } else {
+//     console.log('Product not found')
+//   }
+//   return listProduct;
+// }
+//
+// // add product => new product list
+//
+// function addProduct(newProduct: ProductInterface) {
+//   listProduct.push(newProduct);
+//   console.log(listProduct)
+// }
+//
+// addProduct({
+//   "createdAt": "2023-10-25T02:51:25.801Z",
+//   "name": "test new data",
+//   "amount": 90,
+//   "price": 123,
+//   "expireTime": 1698239843,
+//   "id": "40"
+// })
 
 // remove product => new product list
 
 // groupd by price
 // function groupByPrice(price) {
-  // const result = {
-  //   greater: [
-  //     {}
-  //   ],
-  //   equal: [
-  //
-  //   ],
-  //   less: [
-  //
-  //   ]
-  // }
+//   const result = {
+//     greater: [
+//       {}
+//     ],
+//     equal: [
+//
+//     ],
+//     less: [
+//
+//     ]
+//   }
 // }
 
-// function groupBy(param: 'price' | 'id' | 'expireTime', value: ) {
-  // const result = {
-  //   greater: [
-  //     {}
-  //   ],
-  //   equal: [
-  //
-  //   ],
-  //   less: [
-  //
-  //   ]
+type OutFilter = {
+  greater: ProductInterface[];
+  equal: ProductInterface[];
+  less: ProductInterface[]
+}
+
+function groupBy(param: 'price' | 'id' | 'expireTime' | 'createdAt' | 'name', value: string | number | Date):OutFilter {
+  const result: OutFilter = {
+    greater: [],
+    equal: [],
+    less: []
+  }
+
+  if (typeof value === 'number') {
+      const lessThanList = listProduct.filter(i => +i[param] < value);
+      const equalList = listProduct.filter(i => +i[param] === value);
+      const moreThanList = listProduct.filter(i => +i[param] > value);
+      result.greater = moreThanList;
+      result.equal = equalList;
+      result.less = lessThanList;
+  }
+
+  if (typeof value === 'string') {
+    const lessThanList = listProduct.filter(i => i[param].toString().localeCompare(value) === -1);
+    const equalList = listProduct.filter(i => i[param].toString().localeCompare(value) === 0);
+    const moreThanList = listProduct.filter(i => i[param].toString().localeCompare(value) === 1);
+    result.greater = moreThanList;
+    result.equal = equalList;
+    result.less = lessThanList;
+  }
+
+  if (typeof value === 'object') {
+    const lessThanList = listProduct.filter(i => new Date(i[param]).getTime() < new Date(value).getDate());
+    const equalList = listProduct.filter(i => new Date(i[param]).getTime() === new Date(value).getDate());
+    const moreThanList = listProduct.filter(i =>  new Date(i[param]).getTime() > new Date(value).getDate());
+    result.greater = moreThanList;
+    result.equal = equalList;
+    result.less = lessThanList;
+  }
+
+  // if (param === 'id') {
+  //   const idNumber = Number(value);
+  //   const lessThanList = listProduct.filter(i => +i.id < idNumber);
+  //   const equalList = listProduct.filter(i => +i.id === idNumber);
+  //   const moreThanList = listProduct.filter(i => +i.id > idNumber);
+  //   result.greater = moreThanList;
+  //   result.equal = equalList;
+  //   result.less = lessThanList;
   // }
-// }
+  //
+  // if (param === 'price') {
+  //
+  // }
+  //
+  // if (param === 'expireTime') {
+  //
+  // }
+  //
+  // if (param === 'name') {
+  //
+  // }
+  //
+  // if (param === 'createdAt') {
+  //   const dateNumber = new Date(value).getTime()
+  //   const lessThanList = listProduct.filter(i => new Date(i.createdAt).getTime() < dateNumber);
+  //   const equalList = listProduct.filter(i => new Date(i.createdAt).getTime() === dateNumber);
+  //   const moreThanList = listProduct.filter(i => new Date(i.createdAt).getTime() > dateNumber);
+  //   result.greater = moreThanList;
+  //   result.equal = equalList;
+  //   result.less = lessThanList;
+  // }
+
+
+  return result
+}
+
+// console.log(groupBy('id', 20))
+// console.log(groupBy('price', 50))
+// groupBy('createdAt', new Date("2023-10-25T10:31:55.589Z"))
+// groupBy('createdAt',"2023-10-25T11:31:55.589Z")
+// groupBy('expireTime', 1698240023)
+
+function checkEvenNumber(a: number) {
+  return new Promise((resolve, reject) => {
+    console.log('first')
+
+    // instead of complex function
+    setTimeout(() => {
+      if (a%2=== 1) {
+        resolve('success')
+      } else {
+        reject('incorrect')
+      }
+    }, 3000)
+  })
+}
+
+function runActionCallback() {
+  checkEvenNumber(5).then((result) => {
+    checkEvenNumber(7).then((result) => {
+      checkEvenNumber(9).then((result) => {
+        checkEvenNumber(11)
+      })
+    })
+  });
+
+  checkEvenNumber(6).then((result) => {
+    console.log(result)
+  }).catch((error) => {
+    console.log(error)
+  });
+}
+
+async function runActionAwait() {
+  try {
+    const result = await checkEvenNumber(7);
+    console.log(result);
+    const result2 = await checkEvenNumber(6);
+    const result3 = await checkEvenNumber(61);
+    const result4 = await checkEvenNumber(16);
+    console.log(result2);
+  } catch (e) {
+    console.log('error: ',e)
+  }
+
+}
+
+// runActionCallback();
+runActionAwait()

@@ -7,8 +7,6 @@
     <list default="true" id="7c25c0ed-9795-4a8b-918d-20135d5ca1c4" name="Changes" comment="typescript">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/study.ts" beforeDir="false" afterPath="$PROJECT_DIR$/study.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/type.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +93,10 @@
       <workItem from="1698310686218" duration="753000" />
       <workItem from="1698333444336" duration="651000" />
       <workItem from="1698400066704" duration="985000" />
-      <workItem from="1698407964777" duration="6816000" />
+      <workItem from="1698407964777" duration="7507000" />
+      <workItem from="1698667274096" duration="7704000" />
+      <workItem from="1698829977027" duration="550000" />
+      <workItem from="1698840478858" duration="2082000" />
     </task>
     <task id="LOCAL-00001" summary="js advanced">
       <created>1691850690297</created>
@@ -195,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698244814644</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="typescript">
+      <created>1698417671907</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1698417671907</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
